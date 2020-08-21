@@ -1,3 +1,6 @@
 [submodule "gios-cs6200/environment"]
 	path = gios-cs6200/environment
 	url = https://github.gatech.edu/gios-fall-20/environment
+[submodule "gios-cs6200/munit"]
+	path = gios-cs6200/munit
+	url = https://github.com/nemequ/munit.git

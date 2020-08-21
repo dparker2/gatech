@@ -1,0 +1,10 @@
+version: '3'
+services:
+  main:
+    build: environment
+    command: bash
+    volumes:
+      - .:/home/dparker
+    working_dir: /home/dparker
+    stdin_open: true
+    tty: true
