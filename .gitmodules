@@ -4,3 +4,6 @@
 [submodule "gios-cs6200/munit"]
 	path = gios-cs6200/munit
 	url = https://github.com/nemequ/munit.git
+[submodule "gios-cs6200/cmocka"]
+	path = gios-cs6200/cmocka
+	url = https://github.com/clibs/cmocka.git
