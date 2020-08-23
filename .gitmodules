@@ -13,3 +13,6 @@
 [submodule "rait-cs7638/problem-sets"]
 	path = rait-cs7638/problem-sets
 	url = https://github.gatech.edu/dparker66/rait-problem-sets
+[submodule "rait-cs7638/asteroids-project"]
+	path = rait-cs7638/asteroids-project
+	url = https://github.gatech.edu/dparker66/rait-asteroids-project
