@@ -7,3 +7,6 @@
 [submodule "gios-cs6200/cmocka"]
 	path = gios-cs6200/cmocka
 	url = https://github.com/clibs/cmocka.git
+[submodule "gios-cs6200/pr1"]
+	path = gios-cs6200/pr1
+	url = https://github.gatech.edu/gios-fall-20/pr1.git
