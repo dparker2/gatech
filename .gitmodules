@@ -10,3 +10,6 @@
 [submodule "gios-cs6200/pr1"]
 	path = gios-cs6200/pr1
 	url = https://github.gatech.edu/dparker66/gios-pr1
+[submodule "rait-cs7638/problem-sets"]
+	path = rait-cs7638/problem-sets
+	url = https://github.gatech.edu/dparker66/rait-problem-sets
