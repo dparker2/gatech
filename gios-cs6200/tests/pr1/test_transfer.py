@@ -117,5 +117,39 @@ Morbi eu auctor enim. Proin ligula libero, vulputate id feugiat sed, hendrerit n
                 p.wait()
 
 
+class TestServer(unittest.TestCase):
+    def setUp(self):
+        with popen(["make"]) as p:
+            self.assertEqual(p.wait(1), 0)
+
+    def test_accepts(self):
+        with popen(["./transferserver", "-p", "1054"]) as p:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as test_client:
+                test_client.settimeout(1)
+                try:
+                    test_client.connect(("localhost", 1054))
+                except socket.timeout:
+                    self.assert_(False, "Should not timeout")
+                test_client.close()
+            p.kill()
+            p.wait(1)
+
+    def test_accepts_multiple(self):
+        with popen(["./transferserver", "-p", "1054"]) as p:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as tc1:
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as tc2:
+                    tc1.settimeout(1)
+                    tc2.settimeout(1)
+                    try:
+                        tc1.connect(("localhost", 1054))
+                        tc2.connect(("localhost", 1054))
+                    except socket.timeout:
+                        self.assert_(False, "Should not timeout")
+                tc1.close()
+                tc2.close()
+            p.kill()
+            p.wait(1)
+
+
 if __name__ == "__main__":
     unittest.main()
