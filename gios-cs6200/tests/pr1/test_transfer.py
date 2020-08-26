@@ -2,6 +2,7 @@ import unittest
 import functools
 import subprocess
 import socket
+from time import sleep
 
 popen = functools.partial(
     subprocess.Popen,
@@ -124,31 +125,45 @@ class TestServer(unittest.TestCase):
 
     def test_accepts(self):
         with popen(["./transferserver", "-p", "1054"]) as p:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as test_client:
-                test_client.settimeout(1)
-                try:
-                    test_client.connect(("localhost", 1054))
-                except socket.timeout:
-                    self.assert_(False, "Should not timeout")
-                test_client.close()
-            p.kill()
-            p.wait(1)
+            sleep(0.1)  # Wait for startup
+            try:
+                sock = socket.create_connection(("localhost", 1054), timeout=1)
+                sock.close()
+            except Exception as e:
+                self.assert_(False, str(e))
+            finally:
+                p.terminate()
 
     def test_accepts_multiple(self):
         with popen(["./transferserver", "-p", "1054"]) as p:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as tc1:
-                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as tc2:
-                    tc1.settimeout(1)
-                    tc2.settimeout(1)
-                    try:
-                        tc1.connect(("localhost", 1054))
-                        tc2.connect(("localhost", 1054))
-                    except socket.timeout:
-                        self.assert_(False, "Should not timeout")
-                tc1.close()
-                tc2.close()
-            p.kill()
-            p.wait(1)
+            sleep(0.1)  # Wait for startup
+            try:
+                sock1 = socket.create_connection(("localhost", 1054), timeout=1)
+                sock2 = socket.create_connection(("localhost", 1054), timeout=1)
+                sock1.close()
+                sock2.close()
+            except Exception as e:
+                self.assert_(False, str(e))
+            finally:
+                p.terminate()
+
+    def test_sends_file(self):
+        with open("test_server_file.txt", "w+") as f:
+            f.write("Here is some small stuff!")
+        with popen(
+            ["./transferserver", "-p", "1054", "-f", "test_server_file.txt"]
+        ) as p:
+            sleep(0.1)  # Wait for startup
+            content = b""
+            try:
+                sock = socket.create_connection(("localhost", 1054), timeout=1)
+                content = sock.recv(100)
+                sock.close()
+            except Exception as e:
+                self.assert_(False, str(e))
+            finally:
+                p.terminate()
+            self.assertEqual(content, b"Here is some small stuff!")
 
 
 if __name__ == "__main__":
