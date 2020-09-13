@@ -16,3 +16,6 @@
 [submodule "rait-cs7638/asteroids-project"]
 	path = rait-cs7638/asteroids-project
 	url = https://github.gatech.edu/dparker66/rait-asteroids-project
+[submodule "rait-cs7638/mars-glider-project"]
+	path = rait-cs7638/mars-glider-project
+	url = https://github.gatech.edu/dparker66/rait-mars-glider-project
