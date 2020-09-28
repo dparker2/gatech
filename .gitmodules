@@ -19,3 +19,6 @@
 [submodule "rait-cs7638/mars-glider-project"]
 	path = rait-cs7638/mars-glider-project
 	url = https://github.gatech.edu/dparker66/rait-mars-glider-project
+[submodule "gios-cs6200/pr3"]
+	path = gios-cs6200/pr3
+	url = https://github.gatech.edu/dparker66/gios-pr3.git
