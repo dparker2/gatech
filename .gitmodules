@@ -22,3 +22,6 @@
 [submodule "gios-cs6200/pr3"]
 	path = gios-cs6200/pr3
 	url = https://github.gatech.edu/dparker66/gios-pr3.git
+[submodule "rait-cs7638/rocket-pid-project"]
+	path = rait-cs7638/rocket-pid-project
+	url = https://github.gatech.edu/dparker66/rait-rocket-pid-project.git
