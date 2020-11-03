@@ -25,3 +25,6 @@
 [submodule "rait-cs7638/rocket-pid-project"]
 	path = rait-cs7638/rocket-pid-project
 	url = https://github.gatech.edu/dparker66/rait-rocket-pid-project.git
+[submodule "rait-cs7638/warehouse-search-project"]
+	path = rait-cs7638/warehouse-search-project
+	url = https://github.gatech.edu/dparker66/rait-warehouse-search-project.git
