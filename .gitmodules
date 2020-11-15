@@ -28,3 +28,6 @@
 [submodule "rait-cs7638/warehouse-search-project"]
 	path = rait-cs7638/warehouse-search-project
 	url = https://github.gatech.edu/dparker66/rait-warehouse-search-project.git
+[submodule "gios-cs6200/pr4"]
+	path = gios-cs6200/pr4
+	url = https://github.gatech.edu/dparker66/gios-pr4.git
