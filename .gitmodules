@@ -34,3 +34,6 @@
 [submodule "rait-cs7638/gem-finder-project"]
 	path = rait-cs7638/gem-finder-project
 	url = https://github.gatech.edu/dparker66/rait-gem-finder-project.git
+[submodule "hpc-cs6220/lab0-matrix-multiply"]
+	path = hpc-cs6220/lab0-matrix-multiply
+	url = https://github.gatech.edu/dparker66/hpc-lab0-matrix-multiply
